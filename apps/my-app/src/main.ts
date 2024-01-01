@@ -10,6 +10,9 @@ async function bootstrap() {
 
   // 添加全局过滤器
   app.useGlobalFilters(new HttpExceptionFilter());
+
+  // 添加全局管道
+  // app.useGlobalPipes(new ValidationPipe());
   await app.listen(3000);
 }
 bootstrap();
