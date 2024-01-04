@@ -13,6 +13,9 @@ async function bootstrap() {
 
   // 添加全局管道
   // app.useGlobalPipes(new ValidationPipe());
+
+  // 绑定全局守卫
+  // app.useGlobalGuards(new RolesGuard())
   await app.listen(3000);
 }
 bootstrap();
