@@ -12,6 +12,7 @@ import {
   Query,
   UsePipes,
   UseGuards,
+  UseInterceptors
 } from '@nestjs/common';
 import { type Request } from 'express';
 import { CatsService } from './cats.service';
@@ -20,10 +21,11 @@ import { ValidationPipe } from '../pipes/validation.pipe';
 import { CreateCatDto, createCartSchema } from './create-cat.dto';
 import { RolesGuard } from '../roles.guard';
 import { Roles } from '../roles.decorator';
-
+import {LoggingInterceptor} from '../interceptor/LoggingInterceptor'
 @Controller('cats')
 // @UseFilters(HttpExceptionFilter) 针对整个控制器添加异常过滤器
 @UseGuards(RolesGuard) // 针对整个控制器绑定守卫
+@UseInterceptors(LoggingInterceptor) // 绑定拦截器
 export class CatsController {
   constructor(private catsService: CatsService) {}
 
