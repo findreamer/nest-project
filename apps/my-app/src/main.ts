@@ -16,6 +16,9 @@ async function bootstrap() {
 
   // 绑定全局守卫
   // app.useGlobalGuards(new RolesGuard())
+
+  // 绑定全局拦截器
+  // app.useGlobalInterceptors(new LoggingInterceptor());
   await app.listen(3000);
 }
 bootstrap();
